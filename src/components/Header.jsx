@@ -1,28 +1,28 @@
-export default function Header({ backgroundImage }) {
+import { useState, useEffect } from "react";
+
+export default function Header({ isHome }) {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showMenuText, setShowMenuText] = useState(true);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setShowMenuText(false);
+      } else {
+        setShowMenuText(true);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <header
-      className="fixed top-0 left-0 right-0 z-50 p-4"
-      style={{ backgroundImage: `url(${backgroundImage})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-    >
+    <header className={`fixed top-0 left-0 right-0 z-50 p-4 ${isHome ? "bg-transparent" : "bg-gray-900"}`}>
       <div className="flex justify-between items-center">
         <div className="text-white text-2xl font-bold">DEVNEX HiTech</div>
-        <button
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-          className="text-white"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M4 6h16M4 12h16m-7 6h7"
-            ></path>
-          </svg>
+        <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="text-white">
+          {showMenuText ? 'MENU' : '☰'}
         </button>
       </div>
     </header>
