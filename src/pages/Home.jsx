@@ -9,14 +9,12 @@ export default function Home() {
       className="min-h-screen bg-cover bg-center"
       style={{ backgroundImage: `url(${backgroundImage})` }}
     >
-      <Header backgroundImage={backgroundImage} /> {/* Pass background image to Header */}
       <main className="flex-grow flex items-center justify-center">
         <div className="text-center animate-fade-in">
           <h1 className="text-4xl font-bold text-white">Welcome to DEVNEX HiTech</h1>
           <p className="mt-4 text-xl text-white">We create stunning digital experiences.</p>
         </div>
       </main>
-      <Footer />
     </div>
   );
 }

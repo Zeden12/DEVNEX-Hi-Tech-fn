@@ -5,9 +5,9 @@ import Footer from "../components/Footer";
 
 export default function MainLayout() {
   return (
-    <div className="flex flex-col min-h-screen bg-gray-100"> {/* Adding background color */}
+    <div className="flex flex-col min-h-screen bg-gray-100"> 
       <Header />
-      <main className="flex-grow p-4 bg-white shadow-lg"> {/* Add padding, background, and shadow */}
+      <main className="flex-grow p-4 bg-white shadow-lg"> 
         <Outlet />
       </main>
       <Footer />
